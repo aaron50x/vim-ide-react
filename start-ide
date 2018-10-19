@@ -1,0 +1,56 @@
+#!/bin/bash
+
+function installPackageIfNeeded() {
+    which $1 > /dev/null
+    [ "$?" = "1" ] && apt-get update && apt-get install -y $1
+}
+
+function installYarnIfNeeded() {
+    which yarn > /dev/nulll
+    [ "$?" = "1" ] && npm install -g yarn
+}
+
+function initProjectIfNeeded() {
+    [ ! -d "node_modules" ] && echo "Initializing yarn project ..." && yarn install --silent
+}
+
+function installVimVundleIfNeeded() {
+    local TARGET_DIR="$HOME/.vim/bundle/Vundle.vim"
+    [ ! -d "$TARGET_DIR" ] && \
+        git clone https://github.com/VundleVim/Vundle.vim.git $TARGET_DIR && \
+        ln -s $PWD/.vimrc $HOME/.vimrc
+}
+
+function installVimPlugins() {
+    local currentDir="$PWD"
+    vim +PluginInstall +qa && \
+        echo "Installed VIM plugins" && \
+        cd $HOME/.vim/bundle/YouCompleteMe && \
+        ./install.py --quiet && \
+        echo "Installed YouCompleteMe plugin" && \
+        cd $currentDir
+
+}
+
+function verifyPackages() {
+    installPackageIfNeeded python && \
+    installPackageIfNeeded python-dev && \
+    installPackageIfNeeded git && \
+    installPackageIfNeeded npm && \
+    installYarnIfNeeded && \
+    installPackageIfNeeded tmux && \
+    installPackageIfNeeded vim && \
+    installPackageIfNeeded cmake && \
+    installVimVundleIfNeeded && \
+    installVimPlugins
+}
+
+verifyPackages
+initProjectIfNeeded
+tmux new-session -d -x $(tput cols) -y $(tput lines) 'vim' && \
+tmux split-window -v && \
+tmux resize-pane -D 20 && \
+tmux select-pane -t 0 && \
+tmux unbind q && \
+tmux bind q kill-session && \
+tmux attach-session -d
