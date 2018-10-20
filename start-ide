@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ -d "node_modules" ] && yarn install --silent
+[ ! -d "node_modules" ] && yarn install --silent
 
 tmux new-session -d -x $(tput cols) -y $(tput lines) 'vim' && \
 tmux split-window -v && \
