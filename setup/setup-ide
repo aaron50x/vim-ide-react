@@ -1,0 +1,27 @@
+#!/bin/bash
+
+[ -z "$OS" ] && OS="ubuntu"
+
+. install-$OS-packages
+
+function installVundle() {
+    local TARGET_DIR="$HOME/.vim/bundle/Vundle.vim"
+    [ ! -d "$TARGET_DIR" ] && \
+        git clone https://github.com/VundleVim/Vundle.vim.git $TARGET_DIR && \
+        ln -s $PWD/../.vimrc $HOME/.vimrc
+}
+
+function installVimPlugins() {
+    local currentDir="$PWD"
+    vim +PluginInstall +qa && \
+        echo "Installed VIM plugins" && \
+        cd $HOME/.vim/bundle/YouCompleteMe && \
+        ./install.py --quiet && \
+        echo "Installed YouCompleteMe plugin" && \
+        cd $currentDir
+}
+
+installRequiredPackages && \
+installVundle && \
+installVimPlugins
+

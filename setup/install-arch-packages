@@ -1,0 +1,7 @@
+#!/bin/bash
+
+function installRequiredPackages() {
+    pacman -Sy python git npm tmux vim cmake && \
+        npm install -g yarn
+}
+

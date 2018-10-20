@@ -1,0 +1,8 @@
+#!/bin/bash
+
+function installRequiredPackages() {
+    apt-get update &&\
+        apt-get install -y python python-dev git npm tmux vim cmake && \
+        npm install -g yarn
+}
+
