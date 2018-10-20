@@ -29,7 +29,8 @@ Check file `package.json`, `.babelrc` and `webpack.config.js` to better understa
 
 This vim setup has following features:
 
-  - Autoinstall script: simply execute `./start-ide` script and will get the vim IDE up & running installing any needed package (so far tested on macos mojave)
+  - One script install: simply execute `./setup-ide` from the `setup` subdir to install all required dependencies and setup 
+  - Use `./start-ide` to start the IDE with vim and terminal
 
 ## With Directory Browser
 
