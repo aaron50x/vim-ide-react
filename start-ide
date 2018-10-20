@@ -3,9 +3,10 @@
 [ ! -d "node_modules" ] && yarn install --silent
 
 tmux new-session -d -x $(tput cols) -y $(tput lines) 'vim' && \
-tmux split-window -v && \
-tmux resize-pane -D 20 && \
-tmux select-pane -t 0 && \
-tmux unbind q && \
-tmux bind q kill-session && \
-tmux attach-session -d
+    sleep 0.25 && \
+    tmux split-window -v && \
+    tmux resize-pane -D 20 && \
+    tmux select-pane -t 0 && \
+    tmux unbind q && \
+    tmux bind q kill-session && \
+    tmux attach-session -d
