@@ -9,7 +9,7 @@ VIMDIR="$HOME/.vim/bundle"
     [ -d "$VIMDIR/asyncrun.vim" ] && \
     [ -d "$VIMDIR/ctrlp.vim" ] && \
     [ -d "$VIMDIR/emmet-vim" ] && \
-    [ -d "$VIMDIR/vim-autoclose" ] && \
+    [ -d "$VIMDIR/delimitMate" ] && \
     [ -d "$VIMDIR/vim-closetag" ] && \
     [ -d "$VIMDIR/vim-javascript" ] && \
     [ -d "$VIMDIR/vim-jsx" ]

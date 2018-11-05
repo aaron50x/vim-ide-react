@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "es2018",
+        "checkJs": true
+    },
+    "exclude": [
+        "dist",
+        "node_modules"
+    ],
+    "include":[
+        "src/**/*"
+    ]
+}

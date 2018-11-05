@@ -30,22 +30,13 @@ Plugin 'skywind3000/asyncrun.vim'
 Plugin 'alvan/vim-closetag'
 
 " Autoclose characters
-Plugin 'Townk/vim-autoclose'
-
+Plugin 'Raimondi/delimitMate'
 " Nothing better that autocompletion
 Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'kien/ctrlp.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-" JSX emmet
-"let g:user_emmet_leader_key='<Tab>'
-"let g:user_emmet_settings = {
-"  \  'javascript.jsx' : {
-"    \      'extends' : 'jsx',
-"    \  },
-"  \}
 
 " some eslint config
 let g:ale_lint_on_enter = 1
