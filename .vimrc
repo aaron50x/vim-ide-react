@@ -81,6 +81,7 @@ let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 let g:netrw_winsize = 20
 let g:netrw_browse_split = 4
+let g:netrw_list_hide='*.swp,.git'
 
 " CtrlP
 let g:ctrlp_custom_ignore = '**/node_modules/'
@@ -89,7 +90,6 @@ set autoread
 set splitbelow
 set splitright
 
-let g:netrw_list_hide='*.swp'
 
 " Start dir browser if no argument is set
 augroup DirectoryBrowserOpenIfNoArgs
